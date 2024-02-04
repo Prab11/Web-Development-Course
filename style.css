@@ -1,0 +1,248 @@
+/* Reset some default styles for better consistency */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Typography */
+body {
+    font-family: 'Arial', sans-serif; /* Use Google Font or web-safe font */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333; /* Set body text color */
+}
+
+h1, h2 {
+    font-family: 'Helvetica', sans-serif; /* Use Google Font or web-safe font */
+}
+
+/* Colors and Backgrounds */
+body {
+    background-color: #f4f4f4; /* Set body background color */
+}
+
+h1, h2 {
+    color: #0066cc; /* Set heading text color */
+}
+
+footer {
+    background-color: #333; /* Set footer background color */
+    color: #fff; /* Set footer text color */
+    padding: 10px;
+    text-align: center;
+}
+
+/* Box Model */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #0066cc; /* Set border color for the profile picture */
+    border-radius: 50%; /* Make the profile picture circular */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+.welcome-heading
+{
+    text-align: center;
+    margin-top: 2rem;
+}
+#profile-pic
+{
+    width: 300px;
+}
+
+/* Link Styling */
+a {
+    color: #0066cc; /* Set link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+.nav
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #a7b1c2;
+}
+.nav img
+{
+    width: 60px;
+    opacity: 0.8;
+}
+.nav-link-logo:nth-child(1)
+{
+    margin-right: 2rem;
+}
+.nav-link-logo:nth-child(2)
+{
+    margin-right: 2rem;
+}
+.img-container
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------- About Pages styling -------*/
+#img-logo
+{
+    font-size: 1.8rem;
+}
+.nav-link-logo
+{
+   
+    color: #333;
+}
+.container .about-section .header-name{
+    margin-top: 3rem;
+}
+
+.container .about-section .header-name h1
+{
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container .about-section .about-details
+{
+    display: flex;
+    justify-content: space-between;
+}
+.about-img{
+    width: 30%;
+}
+.about-text
+{
+    width: 70%;
+}
+.about-text h2
+{
+    color: #0066cc;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 2.4rem;
+    font-weight: 500;
+}
+.about-text p
+{
+    margin-top: 0.8rem;
+}
+.container .about-section .about-details img
+{
+    width: 200px;
+}
+.my-interests, .my-foods
+{
+    margin-top: 4rem;
+}
+.my-interests .header-name h1, .my-foods h1
+{
+    text-align: center;
+    color: #0066cc;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 2.4rem;
+    font-weight: 500;
+}
+.my-interests .interests-details .interests-text, .my-foods .foods-text
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+.my-interests .interests-details .interests-text h2, .foods-text h2
+{
+    width: 26%;
+    text-align: center;
+    color: #1e1e1e;
+    font-size: 1.35rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.foods-text h2:nth-child(1)
+{
+    background: #acd4fc;
+    padding: 1rem;
+}
+.foods-text h2:nth-child(2)
+{
+    background: #c8a5f5;
+    padding: 1rem;
+}
+.foods-text h2:nth-child(3)
+{
+    background: #d1f6ab;
+    padding: 1rem;
+}
+.footer
+{
+    background: #333;
+    padding: 1rem ;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    /* Styles for mobile view */
+    body {
+        font-size: 14px;
+    }
+    .container .about-section .header-name h1
+    {
+        font-size: 2rem;
+    }
+    .container .about-section .about-details
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-text h2
+    {
+        font-size: 1.4rem;
+        line-height: 1.75rem;
+    }
+    .about-text
+    {
+        width: 90%;
+    }
+    .foods-text, .interests-text {
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+    }
+    .my-interests .interests-details .interests-text h2, .foods-text h2 {
+        width: 86%;
+    }
+    .footer h3{
+        font-size: 1rem;
+    }
+
+}
+
+/* Additional styles for larger screens if needed */
+@media only screen and (min-width: 601px) {
+    /* Styles for desktop view */
+}
+
