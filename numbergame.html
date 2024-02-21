@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="nav">
+            <div class="logo-img">
+                <a id="img-logo" class="nav-link-logo" href="/"> Home</a>
+            </div>
+            <div class="links">
+                <a class="nav-link-logo" href="./about.html">About Me</a>
+
+            </div>
+            <div class="links">
+                <a class="nav-link-logo" href="./contactme.html">contact</a>
+
+            </div>
+            <div class="links">
+                <a class="nav-link-logo" href="./numbergame.html">Number Game</a>
+
+            </div>
+        </div>
+        <h1>Number Guessing Game</h1>
+        
+        <section>
+            <h2><U>Instructions</U></h2>
+            <p>Guess a random number between 1 and 100. Enter your guess in the input field and click "Submit" to receive feedback.</p>
+        </section>
+        
+      
+        <section>
+            <label for="userinput">Enter your guess:</label>
+            <input type="number" id="userinput" min="1" max="100">
+            <div class="row justify-content-center">
+            <button id="submit" class="btn btn-primary">Submit</button>
+         </div>
+            <p id="playermessage"></p>
+        </section>
+        <p id="attemptCounter"></p>
+        <ul id="records"></ul>
+        <div class="row justify-content-center">
+        <button id="resetbtn"  class="btn btn-danger" >Reset Game</button>
+        </div>
+    </div>
+
+
+    <script src="numbergame.js"></script>
+</body>
+</html>
