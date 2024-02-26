@@ -44,7 +44,29 @@ function handleGuess() {
        
     }
 
-   
+    if (guessnumber == randomNumber) {
+        playSound(true);
+    } 
+    else if (guessnumber < randomNumber) 
+    {
+        playSound(false); 
+    } 
+    else {
+        
+    
+        playSound(false); 
+    }
+    
+     if (guessnumber < randomNumber) 
+    {
+        messagevibration();
+     
+    } 
+    else {
+        
+        messagevibration();
+       
+    }
 
   
     updateAttempts();
@@ -76,16 +98,43 @@ function resetbtn() {
 
 
 
+function messagevibration() {
+    var playermessage = document.getElementById("playermessage");
+    playermessage.classList.add("vibration");
+
+    playermessage.addEventListener("animationend", function () {
+        playermessage.classList.remove("vibration");
+    });
+}
 
 
 
+
+var correctsong = new Audio("http://soundbible.com/grab.php?id=1647&type=wav");
+var incorrectsong = new Audio("http://soundbible.com/grab.php?id=1003&type=wav");
+
+function playSound(isCorrect) {
+    if (isCorrect) {
+        correctsong.play();
+    } else {
+        incorrectsong.play();
+    }
+}
 
 document.getElementById("submit").addEventListener("click", function () {
     handleGuess();
 });
+document.getElementById("resetbtn").addEventListener("dragstart", function (event) {
+    event.dataTransfer.setData("text/plain", null);
+});
 
-document.getElementById("resetbtn").addEventListener("click", function () {
+document.getElementById("droparea").addEventListener("dragover", function (event) {
+    event.preventDefault();
+});
+
+document.getElementById("droparea").addEventListener("drop", function (event) {
     resetbtn();
+    event.preventDefault();
 });
 
 
