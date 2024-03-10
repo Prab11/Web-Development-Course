@@ -47,3 +47,63 @@ function display_Books() {
         });
 }
 
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const postsDiv = document.getElementById("posts");
+  
+   
+    fetch("/.netlify/functions/fetchPosts")
+      .then((response) => response.json())
+      .then((data) => {
+      
+        if (Array.isArray(data)) {
+          data.forEach((post) => {
+            const postElement = createPostElement(post);
+            postsDiv.appendChild(postElement);
+          });
+        } else {
+          postsDiv.innerHTML = "<p>No posts found</p>";
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
+        postsDiv.innerHTML = "<p>Error fetching posts</p>";
+      });
+
+    function createPostElement(post) {
+      const postContainer = document.createElement("div");
+      postContainer.classList.add("post");
+  
+      const titleElement = document.createElement("h2");
+      titleElement.classList.add("post-title");
+      titleElement.textContent = post.title;
+  
+      const bodyElement = document.createElement("p");
+      bodyElement.classList.add("post-body");
+      bodyElement.textContent = post.body;
+  
+      const footerElement = document.createElement("div");
+      footerElement.classList.add("post-footer");
+  
+      const dateElement = document.createElement("span");
+      dateElement.classList.add("post-date");
+      dateElement.textContent = "Posted on: " + post.date;
+  
+      const reactionsElement = document.createElement("span");
+      reactionsElement.classList.add("post-reactions");
+      reactionsElement.textContent = "Reactions: " + post.reactions;
+  
+      footerElement.appendChild(dateElement);
+      footerElement.appendChild(reactionsElement);
+  
+      postContainer.appendChild(titleElement);
+      postContainer.appendChild(bodyElement);
+      postContainer.appendChild(footerElement);
+  
+      return postContainer;
+    }
+  });
+  
