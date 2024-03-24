@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="apitest.css">
+    
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="./about.html">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contactme.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./numbergame.html">Number Game</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./apitest.html">API</a>
+                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./dbtest.html">Database</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="container mt-5">
+
+            <div id="jokeContainer"></div>
+            
+            <div class="quote-card">
+                <h2 class="mt-2">Lord of the Rings Book</h2>
+                <ul class="books-list" id="BooksList"></ul>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block mt-3" id="showQuoteBtn">Show Quote of the Day</button>
+            <div id="quoteContainer"></div> 
+
+
+        </div>
+        <div id="hello-output"></div>
+        </div>
+   
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="apitest.js"></script>
+    </div>
+</body>
+
+</html>

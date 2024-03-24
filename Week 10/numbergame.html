@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styl.css">
+
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contactme.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="./numbergame.html">Number Game</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="./apitest.html">API</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="./dbtest.html">Database</a>
+      </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <h1>Number Guessing Game</h1>
+    <section>
+      <h2><U>Instructions</U></h2>
+      <p>Guess a random number between 1 and 100.your guess in the input field and click "Submit" to
+        receive feedback.</p>
+
+    </section>
+    <section>
+      <label for="userinput">Enter your guess:</label>
+      <input type="number" id="userinput" min="1" max="100">
+      <div class="row justify-content-center">
+        <button id="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+      <p id="playermessage"></p>
+    </section>
+    <section>
+
+      <p id="attemptCounter"></p>
+      <ul id="records"></ul>
+
+      <div id="droparea">Drop Reset Game Button </div>
+      <div class="row justify-content-center">
+
+        <button id="resetbtn" draggable="true" class="btn btn-danger" style="display: none;">Reset Game</button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="numbergame.js">
+
+  </script>
+</body>
+
+</html>
