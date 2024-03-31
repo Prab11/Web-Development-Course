@@ -1,0 +1,356 @@
+
+#droparea {
+    width: 200px;
+    height: 50px;
+    border: 2px dashed #ccc;
+    text-align: center;
+    line-height: 50px;
+    margin: 20px auto;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    75% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.vibration {
+    animation: shake 0.15s ease;
+}
+
+#playermessage {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+
+#resetbtn {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+}
+
+#resetbtn:hover {
+    background-color: #c82333;
+}
+
+
+
+
+#submit {
+    margin-top: 25px;
+    margin-left: 108px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+}
+
+#submit:hover {
+    background-color: #0056b3;
+
+}
+
+#userinput {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 223px;
+}
+
+#userinput:focus {
+    outline: none;
+    border-color: #007bff;
+   
+}
+
+
+
+
+h1 {
+    margin-top: 20px;
+   
+    text-align: center;
+}
+
+.container {
+    background-color: #dae5f1;
+    width: 70%;
+}
+
+body {
+    background-color: rgb(116, 56, 56);
+    text-align: center;
+} 
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif; 
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2 {
+    font-family: 'Helvetica', sans-serif; 
+}
+
+body {
+    background-color: #f4f4f4; 
+}
+
+h1, h2 {
+    color: #0066cc;
+}
+
+footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px;
+    text-align: center;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #0066cc; 
+    border-radius: 50%; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+.welcome-heading
+{
+    text-align: center;
+    margin-top: 2rem;
+}
+#profile-pic
+{
+    width: 300px;
+}
+
+
+a {
+    color:black; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline; 
+}
+.nav
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #bbcbe8;
+    border-radius: 30px;
+    background-color: #bbcbe8;
+}
+.nav img
+{
+    width: 60px;
+    opacity: 0.8;
+}
+.nav-link-logo:nth-child(1)
+{
+    margin-right: 2rem;
+}
+.nav-link-logo:nth-child(2)
+{
+    margin-right: 2rem;
+}
+.img-container
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------- About Pages styling -------*/
+#img-logo
+{
+    font-size: 1.8rem;
+}
+.nav-link-logo
+{
+   
+    color: #333;
+}
+.container .about-section .header-name{
+    margin-top: 3rem;
+}
+
+.container .about-section .header-name h1
+{
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container .about-section .about-details
+{
+    display: flex;
+    justify-content: space-between;
+}
+.about-img{
+    width: 30%;
+}
+.about-text
+{
+    width: 70%;
+}
+.about-text h2
+{
+    color: #4700cc;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 2.4rem;
+    font-weight: 500;
+}
+.about-text p
+{
+    margin-top: 0.8rem;
+}
+.container .about-section .about-details img
+{
+    width: 200px;
+}
+.my-interests, .my-foods
+{
+    margin-top: 4rem;
+}
+.my-interests .header-name h1, .my-foods h1
+{
+    text-align: center;
+    color: #3b6766;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 2.4rem;
+    font-weight: 500;
+}
+.my-interests .interests-details .interests-text, .my-foods .foods-text
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+.my-interests .interests-details .interests-text h2, .foods-text h2
+{
+    width: 26%;
+    text-align: center;
+    color: #431818;
+    font-size: 1.35rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.footer
+{
+    background: #333;
+    padding: 1rem ;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  
+    body {
+        font-size: 14px;
+    }
+    .container .about-section .header-name h1
+    {
+        font-size: 2rem;
+    }
+    .container .about-section .about-details
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-text h2
+    {
+        font-size: 1.4rem;
+        line-height: 1.75rem;
+    }
+    .about-text
+    {
+        width: 90%;
+    }
+    .foods-text, .interests-text {
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+    }
+    .my-interests .interests-details .interests-text h2, .foods-text h2 {
+        width: 86%;
+    }
+    .footer h3{
+        font-size: 1rem;
+    }
+
+}
+
+
+@media only screen and (min-width: 601px) {
+   
+}
+
+
+
