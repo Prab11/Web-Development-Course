@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="./about.html">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contactme.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./numbergame.html">Number Game</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./apitest.html">API</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./dbtest.html">Database</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="./books.html">Books</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="container mt-4">
+
+
+
+
+
+            <div id="books-container"></div>
+        </div>
+
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addBookModal">
+            Add Book
+        </button>
+        <button onclick="window.netlifyIdentity && window.netlifyIdentity.open('login')">Log In</button>
+        <button onclick="window.netlifyIdentity && window.netlifyIdentity.logout()">Log Out</button>
+    
+        <!-- Add Book Modal -->
+        <div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addBookModalLabel">Add New Book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addBookForm">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author</label>
+                                <input type="text" class="form-control" id="author" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="isbn">ISBN</label>
+                                <input type="text" class="form-control" id="isbn">
+                            </div>
+                            <div class="form-group">
+                                <label for="publishedYear">Published Year</label>
+                                <input type="number" class="form-control" id="publishedYear" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="genre">Genre</label>
+                                <input type="text" class="form-control" id="genre">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="addBook()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Book Modal -->
+        <div class="modal fade" id="editBookModal" tabindex="-1" role="dialog" aria-labelledby="editBookModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editBookModalLabel">Edit Book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editBookForm">
+                            <input type="hidden" id="editBookId">
+                            <div class="form-group">
+                                <label for="editTitle">Title</label>
+                                <input type="text" class="form-control" id="editTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editAuthor">Author</label>
+                                <input type="text" class="form-control" id="editAuthor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editISBN">ISBN</label>
+                                <input type="text" class="form-control" id="editISBN">
+                            </div>
+                            <div class="form-group">
+                                <label for="editPublishedYear">Published Year</label>
+                                <input type="number" class="form-control" id="editPublishedYear" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editGenre">Genre</label>
+                                <input type="text" class="form-control" id="editGenre">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="updateBook()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", () => {
+                    const user = netlifyIdentity.currentUser();
+                    console.log('Netlify Identity initial user state:', user);
+
+                    if (!user) {
+                        console.log('No user found, opening login modal');
+                        netlifyIdentity.open("login"); // Automatically opens login modal
+                    } else {
+                        // User is logged in; perform actions as needed
+                        console.log('User found:', user);
+                        fetchBooks();
+                    }
+                    netlifyIdentity.on("login", (user) => {
+                        console.log('User logged in', user);
+                        netlifyIdentity.close();
+                        fetchBooks();
+                    });
+                    netlifyIdentity.on("logout", () => {
+                        console.log('User logged out');
+                        document.location.href = "/books.html";
+                    });
+                });
+            } else {
+                console.error('Netlify Identity script not found. Ensure it is loaded before this script.');
+            }
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="books.js"></script>
+    </div>
+</body>
+
+</html>

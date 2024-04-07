@@ -1,0 +1,136 @@
+
+
+#products {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #products ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #products li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  #products li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .product-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .product-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .product-name {
+    font-weight: bold;
+  }
+  
+  .product-price {
+    color: green;
+  }
+  
+  .product-category {
+    font-style: italic;
+    color: #666;
+  }
+
+  
+  #orders {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #orders ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #orders li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  #orders li:hover {
+    background-color: #f0f0f0;
+  }
+
+  .order-id {
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .username{
+    margin-bottom: 10px;
+    padding: 10px;
+   
+  }
+  
+
+  .product-name {
+    font-weight: bold;
+  }
+  
+  
+  
+  .quantity>{
+    font-style: italic;
+    color: #666;
+  }
+
+  
+
+  #users {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #users  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #users  li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  #users  li:hover {
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: aqua;
+  }
