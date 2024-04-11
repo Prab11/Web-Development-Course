@@ -1,16 +1,16 @@
 const mysql = require('mysql2/promise');
 
 exports.handler = async (event, context) => {
-  // if (!context.clientContext || !context.clientContext.user) {
-  //   return {
-  //   statusCode: 401,
-  //   body: JSON.stringify({ error: 'You must be logged in.' }),
-  //   };
-  //   }
+  if (!context.clientContext || !context.clientContext.user) {
+    return {
+    statusCode: 401,
+    body: JSON.stringify({ error: 'You must be logged in.' }),
+    };
+    }
     
-  //   const user = context.clientContext.user;
+    const user = context.clientContext.user;
   
-  //   console.log('Authenticated user:', user);
+    console.log('Authenticated user:', user);
   try {
     const { id, title, author, isbn, published_year, genre } = JSON.parse(event.body);
 

@@ -120,24 +120,24 @@
                         <form id="editBookForm">
                             <input type="hidden" id="editBookId">
                             <div class="form-group">
-                                <label for="editTitle">Title</label>
-                                <input type="text" class="form-control" id="editTitle" required>
+                                <label for="editBookTitle">Title</label>
+                                <input type="text" class="form-control" id="editBookTitle" required>
                             </div>
                             <div class="form-group">
-                                <label for="editAuthor">Author</label>
-                                <input type="text" class="form-control" id="editAuthor" required>
+                                <label for="editBookAuthor">Author</label>
+                                <input type="text" class="form-control" id="editBookAuthor" required>
                             </div>
                             <div class="form-group">
-                                <label for="editISBN">ISBN</label>
-                                <input type="text" class="form-control" id="editISBN">
+                                <label for="editBookISBN">ISBN</label>
+                                <input type="text" class="form-control" id="editBookISBN">
                             </div>
                             <div class="form-group">
-                                <label for="editPublishedYear">Published Year</label>
-                                <input type="number" class="form-control" id="editPublishedYear" required>
+                                <label for="editBookPublishedYear">Published Year</label>
+                                <input type="number" class="form-control" id="editBookPublishedYear" required>
                             </div>
                             <div class="form-group">
-                                <label for="editGenre">Genre</label>
-                                <input type="text" class="form-control" id="editGenre">
+                                <label for="editBookGenre">Genre</label>
+                                <input type="text" class="form-control" id="editBookGenre">
                             </div>
                         </form>
                     </div>
@@ -156,9 +156,9 @@
 
                     if (!user) {
                         console.log('No user found, opening login modal');
-                        netlifyIdentity.open("login"); // Automatically opens login modal
+                        netlifyIdentity.open("login"); 
                     } else {
-                        // User is logged in; perform actions as needed
+                    
                         console.log('User found:', user);
                         fetchBooks();
                     }

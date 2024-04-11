@@ -3,19 +3,19 @@ function fetchBooks() {
 
     const user = netlifyIdentity.currentUser();
     // if (!user) {
-       
+
     //     console.log('User not logged in');
     //     return;
     // }
-    
+
     user.jwt().then((token) => {
-       
+
         fetch('/.netlify/functions/allBooks', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
-            // fetch('/.netlify/functions/allBooks')
+
             .then(response => response.json())
             .then(books => {
                 const booksContainer = document.getElementById('books-container');
@@ -50,82 +50,121 @@ function addBook() {
     const isbn = document.getElementById('isbn').value;
     const publishedYear = document.getElementById('publishedYear').value;
     const genre = document.getElementById('genre').value;
+    const user = netlifyIdentity.currentUser();
+  
 
-    fetch('/.netlify/functions/createBook', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, author, isbn, published_year: publishedYear, genre }),
-    })
-        .then(response => {
-            if (response.ok) {
-                $('#addBookModal').modal('hide');
-                fetchBooks(); // Update the book list
-            }
+    user.jwt().then((token) => {
+
+
+
+        fetch('/.netlify/functions/createBook', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ title, author, isbn, published_year: publishedYear, genre }),
         })
-        .catch(error => console.error('Error:', error));
+            .then(response => {
+                if (response.ok) {
+                    $('#addBookModal').modal('hide');
+                    fetchBooks(); 
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    });
 }
 
 document.addEventListener('DOMContentLoaded', fetchBooks);
-// Function to open the edit modal with book details
-async function openEditModal(bookId) {
-    try {
-        const response = await fetch(`/.netlify/functions/readBook?id=${bookId}`);
-        const book = await response.json();
 
-        document.getElementById('editBookId').value = book.id;
-        document.getElementById('editTitle').value = book.title;
-        document.getElementById('editAuthor').value = book.author;
-        document.getElementById('editISBN').value = book.isbn || '';
-        document.getElementById('editPublishedYear').value = book.published_year;
-        document.getElementById('editGenre').value = book.genre || '';
 
-        $('#editBookModal').modal('show');
-    } catch (error) {
-        console.error('Error fetching book details:', error);
-    }
-}
+function openEditModal(bookId) {
+    console.log("Book Id", bookId)
 
-// Function to update an existing book
-function updateBook() {
-    const id = document.getElementById('editBookId').value;
-    const title = document.getElementById('editTitle').value;
-    const author = document.getElementById('editAuthor').value;
-    const isbn = document.getElementById('editISBN').value;
-    const publishedYear = document.getElementById('editPublishedYear').value;
-    const genre = document.getElementById('editGenre').value;
+ 
+    const user = netlifyIdentity.currentUser();
 
-    fetch('/.netlify/functions/updateBook', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id, title, author, isbn, published_year: publishedYear, genre }),
-    })
-        .then(response => {
-            if (response.ok) {
-                $('#editBookModal').modal('hide');
-                fetchBooks(); // Update the book list
-            }
+    user.jwt().then((token) => {
+     
+        fetch(`/.netlify/functions/readBook?id=${bookId}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+
+            },
         })
-        .catch(error => console.error('Error:', error));
+            .then(response => response.json())
+            .then(book => {
+                console.log(book)
+                document.getElementById('editBookId').value = book.id;
+                document.getElementById('editBookTitle').value = book.title;
+                document.getElementById('editBookAuthor').value = book.author;
+                document.getElementById('editBookISBN').value = book.isbn;
+                document.getElementById('editBookPublishedYear').value = book.published_year;
+                document.getElementById('editBookGenre').value = book.genre;
+
+                $('#editBookModal').modal('show');
+
+            })
+            .catch(error => console.error('Error fetching book details:', error));
+    });
 }
+
+function updateBook() {
+    const bookData = {
+        id: document.getElementById('editBookId').value,
+        title: document.getElementById('editBookTitle').value,
+        author: document.getElementById('editBookAuthor').value,
+        isbn: document.getElementById('editBookISBN').value,
+        published_year: document.getElementById('editBookPublishedYear').value,
+        genre: document.getElementById('editBookGenre').value,
+    };
+
+    const user = netlifyIdentity.currentUser();
+
+  
+    user.jwt().then((token) => {
+        fetch('/.netlify/functions/updateBook', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bookData),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Book updated:', data);
+                $('#editBookModal').modal('hide');
+                fetchBooks(); // Refresh the books list
+            })
+            .catch(error => console.error('Error updating book:', error));
+    });
+}
+
+
+
 
 // Function to confirm and delete a book
 function confirmDelete(bookId) {
     if (confirm('Are you sure you want to delete this book?')) {
-        fetch(`/.netlify/functions/deleteBook?id=${bookId}`, {
-            method: 'DELETE',
-        })
-            .then(response => {
-                if (response.ok) {
-                    fetchBooks(); // Update the book list
-                }
+        const user = netlifyIdentity.currentUser();
+        user.jwt().then((token) => {
+
+            fetch(`/.netlify/functions/deleteBook?id=${bookId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
             })
-            .catch(error => console.error('Error:', error));
+                .then(response => {
+                    if (response.ok) {
+                        fetchBooks(); // Update the book list
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
     }
 }
-
 // Run the fetchBooks function on page load
 document.addEventListener('DOMContentLoaded', fetchBooks());
